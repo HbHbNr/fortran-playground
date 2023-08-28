@@ -1,12 +1,12 @@
 .PHONY: all clean
 
-all: helloworld helloworld2
+all: bin/helloworld bin/helloworld2
 
-helloworld: helloworld.f90
-	gfortran -o helloworld helloworld.f90
+bin/helloworld: src/helloworld.f90
+	gfortran -o bin/helloworld src/helloworld.f90
 
-helloworld2: helloworld2.f90
-	gfortran -o helloworld2 helloworld2.f90
+bin/helloworld2: src/helloworld2.f90
+	gfortran -o bin/helloworld2 src/helloworld2.f90
 
 clean:
-	rm -f helloworld helloworld2
+	rm -f bin/*
