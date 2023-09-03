@@ -1,4 +1,4 @@
-.PHONY: all info clean
+.PHONY: all run info clean
 
 SRC = src
 OBJ = obj
@@ -7,11 +7,15 @@ FC = gfortran
 FFLAGS = -J $(OBJ)
 SOURCES = $(wildcard $(SRC)/*.f90)
 OBJECTS = $(SOURCES:$(SRC)/%.f90=$(OBJ)/%.o)
+BINARIES = $(BIN)/helloworld $(BIN)/helloworld2
 
-all: $(BIN) $(OBJ) $(BIN)/helloworld $(BIN)/helloworld2
+all: $(BIN) $(OBJ) $(BINARIES)
+
+run: $(BIN) $(OBJ) $(BINARIES)
+	for BINARY in $(BINARIES); do $${BINARY}; done
 
 $(BIN)/helloworld: $(OBJ)/helloworld.o
-$(BIN)/helloworld2: $(OBJ)/helloworld2_run.o $(OBJ)/helloworld2.o $(OBJ)/fruit.o
+$(BIN)/helloworld2: $(OBJ)/helloworld2_main.o $(OBJ)/helloworld2.o $(OBJ)/fruit.o
 
 $(BIN):
 	mkdir -v $@

@@ -1,4 +1,4 @@
-program helloworld2_run
+program helloworld2_main
     use helloworld2, only : sayhello, strtoint
     implicit none
 
@@ -10,4 +10,4 @@ program helloworld2_run
     caloriesstring = '2000'
     calories = strtoint(caloriesstring)
     print '(I4)',calories+1
-end program helloworld2_run
+end program helloworld2_main
