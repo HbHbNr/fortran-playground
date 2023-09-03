@@ -1,12 +1,33 @@
-.PHONY: all clean
+.PHONY: all info clean
 
-all: bin/helloworld bin/helloworld2
+SRC = src
+OBJ = obj
+BIN = bin
+FC = gfortran
+FFLAGS = -J $(OBJ)
+SOURCES = $(wildcard $(SRC)/*.f90)
+OBJECTS = $(SOURCES:$(SRC)/%.f90=$(OBJ)/%.o)
 
-bin/helloworld: src/helloworld.f90
-	gfortran -o bin/helloworld src/helloworld.f90
+all: $(BIN) $(OBJ) $(BIN)/helloworld $(BIN)/helloworld2
 
-bin/helloworld2: src/helloworld2.f90
-	gfortran -o bin/helloworld2 src/helloworld2.f90
+$(BIN)/helloworld: $(OBJ)/helloworld.o
+$(BIN)/helloworld2: $(OBJ)/helloworld2.o $(OBJ)/fruit.o
+
+$(BIN):
+	mkdir -v $@
+
+$(OBJ):
+	mkdir -v $@
+
+$(BIN)/%: $(OBJ)/%.o
+	$(FC) -o $@ $^
+
+$(OBJ)/%.o: $(SRC)/%.f90
+	$(FC) $(FFLAGS) -c -o $@ $<
+
+info:
+	@echo 'SOURCES="$(SOURCES)"'
+	@echo 'OBJECTS="$(OBJECTS)"'
 
 clean:
-	rm -f bin/*
+	rm -f bin/* obj/*
