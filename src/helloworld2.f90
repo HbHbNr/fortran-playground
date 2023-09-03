@@ -1,33 +1,30 @@
-subroutine sayhello
+module helloworld2
     implicit none
+    private
 
-    character(20) :: message
-    integer :: length
+    public :: sayhello
+    public :: strtoint
 
-    message = 'Hello, world!'
-    length = len(message)
-    print '(Aa)',message,message
-    print '(I4)',length
-end subroutine
+contains
 
-integer function strtoint(string)
-    implicit none
+    subroutine sayhello
+        implicit none
 
-    character(20) :: string
+        character(20) :: message
+        integer :: length
 
-    read(string, '(I20)') strtoint  ! return mytoint
-end function strtoint
+        message = 'Hello, world!'
+        length = len(message)
+        print '(Aa)',message,message
+        print '(I4)',length
+    end subroutine
 
-program helloworld2
-    implicit none
+    integer function strtoint(string)
+        implicit none
 
-    character(20) :: caloriesstring
-    integer :: calories
-    integer :: strtoint
+        character(20) :: string
 
-    call sayhello
+        read(string, '(I20)') strtoint  ! return mytoint
+    end function strtoint
 
-    caloriesstring = '2000'
-    calories = strtoint(caloriesstring)
-    print '(I4)',calories+1
-end program helloworld2
+end module helloworld2

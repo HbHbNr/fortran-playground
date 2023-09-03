@@ -11,7 +11,7 @@ OBJECTS = $(SOURCES:$(SRC)/%.f90=$(OBJ)/%.o)
 all: $(BIN) $(OBJ) $(BIN)/helloworld $(BIN)/helloworld2
 
 $(BIN)/helloworld: $(OBJ)/helloworld.o
-$(BIN)/helloworld2: $(OBJ)/helloworld2.o $(OBJ)/fruit.o
+$(BIN)/helloworld2: $(OBJ)/helloworld2_run.o $(OBJ)/helloworld2.o $(OBJ)/fruit.o
 
 $(BIN):
 	mkdir -v $@
