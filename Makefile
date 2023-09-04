@@ -1,3 +1,6 @@
+# disable default rules and default variables
+MAKEFLAGS += --no-builtin-rules --no-builtin-variables
+
 .PHONY: all run info clean
 
 SRC := src
