@@ -17,9 +17,10 @@ all: $(BINARIES)
 runall: $(BINARIES)
 	for BINARY in $(BINARIES); do $${BINARY}; done
 
+$(BIN)/arrays: $(OBJ)/arrays.o
+$(BIN)/csv: $(OBJ)/csv.o
 $(BIN)/helloworld: $(OBJ)/helloworld.o
 $(BIN)/helloworld2: $(OBJ)/helloworld2_main.o $(OBJ)/helloworld2.o $(OBJ)/fruit.o
-$(BIN)/arrays: $(OBJ)/arrays.o
 
 $(BIN)/%: $(OBJ)/%.o
 	$(FC) -o $@ $^
