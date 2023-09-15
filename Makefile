@@ -10,7 +10,7 @@ FC := gfortran
 FFLAGS := -J $(OBJ)
 SOURCES := $(sort $(wildcard $(SRC)/*.f90))
 OBJECTS := $(SOURCES:$(SRC)/%.f90=$(OBJ)/%.o)
-BINARIES := $(BIN)/arrays $(BIN)/csv $(BIN)/helloworld $(BIN)/helloworld2
+BINARIES := $(BIN)/arrays $(BIN)/csv $(BIN)/helloworld $(BIN)/helloworld2 $(BIN)/io
 
 all: $(BINARIES)
 
@@ -31,6 +31,7 @@ $(OBJ)/%.o: $(SRC)/%.f90
 info:
 	@echo 'SOURCES="$(SOURCES)"'
 	@echo 'OBJECTS="$(OBJECTS)"'
+	@echo 'OBJECTS="$(BINARIES)"'
 
 clean:
 	rm -f bin/* obj/*
