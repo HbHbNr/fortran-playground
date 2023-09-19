@@ -10,16 +10,13 @@ FC := gfortran
 FFLAGS := -J $(OBJ)
 SOURCES := $(sort $(wildcard $(SRC)/*.f90))
 OBJECTS := $(SOURCES:$(SRC)/%.f90=$(OBJ)/%.o)
-BINARIES := $(BIN)/arrays $(BIN)/csv $(BIN)/helloworld $(BIN)/helloworld2 $(BIN)/io
+BINARIES := $(BIN)/allocation $(BIN)/arrays $(BIN)/csv $(BIN)/helloworld $(BIN)/helloworld2 $(BIN)/io
 
 all: $(BINARIES)
 
 runall: $(BINARIES)
 	for BINARY in $(BINARIES); do $${BINARY}; done
 
-$(BIN)/arrays: $(OBJ)/arrays.o
-$(BIN)/csv: $(OBJ)/csv.o
-$(BIN)/helloworld: $(OBJ)/helloworld.o
 $(BIN)/helloworld2: $(OBJ)/helloworld2_main.o $(OBJ)/helloworld2.o
 
 $(BIN)/%: $(OBJ)/%.o
