@@ -1,6 +1,7 @@
 program io
+    use iso_fortran_env, only : output_unit, error_unit
     implicit none
 
-    write (0, *) 'write to stderr'
-    write (6, *) 'write to stdout'
+    write (error_unit, *) 'write to stderr'
+    write (output_unit, *) 'write to stdout'
 end program io

@@ -15,7 +15,7 @@ BINARIES := $(BIN)/allocation $(BIN)/arrays $(BIN)/csv $(BIN)/helloworld $(BIN)/
 all: $(BINARIES)
 
 runall: $(BINARIES)
-	for BINARY in $(BINARIES); do $${BINARY}; done
+	for BINARY in $(BINARIES); do echo "********** $${BINARY} **********"; $${BINARY}; done
 
 $(BIN)/helloworld2: $(OBJ)/helloworld2_main.o $(OBJ)/helloworld2.o
 
