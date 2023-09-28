@@ -9,6 +9,7 @@ program arrays
     integer, dimension(2,3) :: c = reshape((/ 1, 2, 3, 4, 5, 6 /), shape(c))
     character(len=8)        :: s1 = '-2 -2 -2'
     character(len=3)        :: s2 = '999'
+    character(len=2*3)      :: s3 = '123456'
 
     ! test with single dimension - code
     ! print *, a
@@ -50,6 +51,11 @@ program arrays
     print *
     ! read values from string s2 into the first row without separator
     read(s2, '(I1, I1, I1)') c(2,:)
+    print *, c(1,:)
+    print *, c(2,:)
+    print *
+    ! read values from string s3 into the whole array without separator
+    read(s3, '(6(I1))') c
     print *, c(1,:)
     print *, c(2,:)
 end program arrays
