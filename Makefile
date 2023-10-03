@@ -29,7 +29,7 @@ $(OBJ)/%.o: $(SRC)/%.f90
 info:
 	@echo 'SOURCES="$(SOURCES)"'
 	@echo 'OBJECTS="$(OBJECTS)"'
-	@echo 'OBJECTS="$(BINARIES)"'
+	@echo 'BINARIES="$(BINARIES)"'
 
 clean:
 	rm -f bin/* obj/*
