@@ -7,8 +7,8 @@ program complex
     complex(kind=8)  :: c3 = (1,2)
     complex(kind=16) :: c4 = (1,2)
 
-    print *, c1
-    print *, c2
-    print *, c3
-    print *, c4
+    print *, c1, (c1 / 2)
+    print *, c2, (c2 / 2)
+    print *, c3, (c3 / 2)
+    print *, c4, (c4 / 2)
 end program complex
