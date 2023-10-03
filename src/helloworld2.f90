@@ -15,7 +15,7 @@ contains
 
         message = 'Hello, world!'
         length = len(message)
-        print '(Aa)',message,message
+        print '(A,a)',message,message
         print '(I4)',length
     end subroutine
 
