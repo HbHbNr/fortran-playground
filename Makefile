@@ -20,6 +20,7 @@ runall: $(BINARIES)
 $(OBJ)/helloworld2_main.o: $(OBJ)/helloworld2.o
 $(BIN)/helloworld2: $(OBJ)/helloworld2_main.o $(OBJ)/helloworld2.o
 
+$(OBJ)/regex_test.o: $(OBJ)/regex.o
 $(BIN)/regex_test: $(OBJ)/regex_test.o $(OBJ)/regex.o
 
 $(BIN)/%: $(OBJ)/%.o
